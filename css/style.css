@@ -1,0 +1,54 @@
+body{
+  font-size: 14px;
+}
+
+#open, #close{
+  cursor: pointer;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+  padding: 12px 0;
+  margin: 16px auto 0;
+}
+
+#mask{
+  background: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+}
+
+#modal{
+  background: #fff;
+  width: 300px;
+  padding: 20px;
+  border-radius: 4px;
+  position: absolute;
+  top: 40px;
+
+  /*  絶対配置の時は、下の３つで中央揃えが可能。transform使わなくて済む*/
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  transition: transform 0.4s;
+  /* 移動に関してのみ0.4sで動く。transition: 0.4s;の場合、透明度も同時に変化 */
+  z-index: 2;
+}
+
+#modal > p{
+  margin: 0 0 20px;
+  /* 上　左右　下 */
+}
+
+#mask.hidden{
+  display: none;
+}
+
+#modal.hidden{
+  transform: translate(0, -500px);
+  opacity: 0;
+}
